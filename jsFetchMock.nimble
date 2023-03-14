@@ -5,7 +5,7 @@ author        = "Thiago Navarro"
 description   = "A simple lib to intercept Javascript fetch to capture or edit the data"
 license       = "MIT"
 srcDir        = "src"
-bin           = @["jsfetchMock"]
+bin           = @["jsFetchMock"]
 binDir = "build"
 
 backend = "js"
