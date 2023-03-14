@@ -14,5 +14,10 @@ backend = "js"
 
 requires "nim >= 1.6.4"
 
-task buildRelease, "Builds the release version":
-  exec "nimble --opt:size --define:release build"
+from std/strformat import fmt
+from std/os import `/`
+
+task buildRelease, "Build release version":
+  exec "nimble -d:danger build"
+  let f = binDir / bin[0] & "." & backend
+  exec fmt"uglifyjs -o {f} {f}"
