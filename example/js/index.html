@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Fetch Mock Example</title>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    body>* {
+      margin: .5em;
+      padding: .5em;
+    }
+
+    body> :not(button) {
+      min-width: 50em;
+    }
+
+  </style>
+</head>
+
+<body>
+  <input type="text" id="url" value="../data.json" />
+  <input type="text" id="replace" placeholder="Value to be replaced (blank to none)" />
+  <textarea id="out" placeholder="Output"></textarea>
+  <button id="go">Make the request</button>
+
+  <script src="/build/jsfetchMock.js"></script>
+  <script>
+    const $ = x => document.getElementById(x)
+    const onclick = (id, fn) => $(id).onclick = fn
+    const value = id => $(id).value
+    const setValue = (id, val) => $(id).value = val
+    onclick("go", () => {
+      newFetchMock("example", (err, url, response, config) => {
+        return value("replace") || response
+      })
+      fetch(value("url")).
+        then(x => x.text()).
+        then(txt => {
+          setValue("out", txt)
+        })
+      deleteFetchMock("example")
+    })
+  </script>
+</body>
+
+</html>
