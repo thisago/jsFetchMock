@@ -15,16 +15,13 @@
       justify-content: center;
       height: 100vh;
     }
-
     body>* {
       margin: .5em;
       padding: .5em;
     }
-
     body> :not(button) {
       min-width: 50em;
     }
-
   </style>
 </head>
 
@@ -34,7 +31,7 @@
   <textarea id="out" placeholder="Output"></textarea>
   <button id="go">Make the request</button>
 
-  <script src="/build/jsfetchMock.js"></script>
+  <script src="/build/jsFetchMock.js"></script>
   <script>
     const $ = x => document.getElementById(x)
     const onclick = (id, fn) => $(id).onclick = fn
@@ -52,6 +49,7 @@
       deleteFetchMock("example")
     })
   </script>
+  
 </body>
 
 </html>

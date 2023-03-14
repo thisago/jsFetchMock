@@ -1,5 +1,5 @@
 from std/dom import document, getElementById, value
-import ../../src/jsfetchMock
+import ../../src/jsFetchMock
 
 discard newFetchMock("example"):
   result = document.getElementById("replace").value
