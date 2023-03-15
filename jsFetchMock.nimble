@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.1.1"
 author        = "Thiago Navarro"
 description   = "A simple lib to intercept Javascript fetch to capture or edit the data"
 license       = "MIT"
